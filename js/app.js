@@ -46,7 +46,7 @@ const option = {
             ],
             className: 'slide-carousel',
             classNameActive: 'active',
-            imageSrc: array.image,
+            imageSlide: array.image,
             
 	    }
     },
