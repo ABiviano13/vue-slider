@@ -18,25 +18,24 @@
     
                 <div class="carousel">
 
-                    <div v-for="(element, i) in array" class="slide-carousel active">
+                    <div v-for="(element, i) in array" class="slide-carousel" :class="i === currentIndex ? 'active' : '' ">
 
                         <img :src="element.image" alt=""> 
                         <div class="text">
                             <div class="title">
                                 {{ element.title }}
                             </div>
-                            <p>
-                                {{ element.text }}
-                            </p>
+                            <!-- {{ element.text }} Finchè abbiamo solo testo e non abbiamo html si stampa in questo modo -->
+                            <p v-html="element.text"></p>
                         </div>
 
                     </div>
     
-                    <div class="carousel__arrow arrow-left">
+                    <div @click="prevSlide" class="carousel__arrow arrow-left">
                         <i class="fa-solid fa-chevron-left"></i>
                     </div>
               
-                    <div class="carousel__arrow arrow-right">
+                    <div @click="nextSlide" class="carousel__arrow arrow-right">
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
     
